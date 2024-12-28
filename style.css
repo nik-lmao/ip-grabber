@@ -1,0 +1,128 @@
+
+.btn,body,html {
+    margin: 0
+}
+
+.btn,a {
+    text-decoration: none
+}
+
+.btn,.logo a {
+    font-weight: 700
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    padding: 0
+}
+
+body {
+    background-color: #fff;
+    background-image: linear-gradient(315deg,#fff 0,#d7e1ec 74%);
+    font-family: Helvetica,Arial,sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+a {
+    color: #1fa3ec
+}
+
+.logo {
+    right: 15px;
+    bottom: 15
+    position: absolute
+}
+
+.logo a {
+    color: #b7b7b7;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 2em;
+    border-bottom: 5px solid #b7b7b7
+}
+
+.title {
+    font-size: 1.5em;
+    color: #404040
+}
+
+.btn {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 0;
+    border-radius: .317rem;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: "Helvetica Neue",Arial,sans-serif;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+    background-color: #8db7e6
+}
+
+.btn:hover {
+    opacity: .85
+}
+
+.container {
+    text-align: center;
+    top: 35vh;
+    display: block;
+    position: relative
+}
+
+.footer {
+    font-size: 12px
+}
+
+@-webkit-keyframes bubbles {
+    33%: {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px)
+    }
+
+    66% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px)
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes bubbles {
+    33%: {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px)
+    }
+
+    66% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px)
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+
+.bubbles {
+    background-color: #404040;
+    width: 15px;
+    height: 15px;
+    margin: 2px;
+    border-radius: 100%;
+    -webkit-animation: bubbles .6s 70ms infinite ease-in-out;
+    animation: bubbles .6s 70ms infinite ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    display: inline-block
+}
